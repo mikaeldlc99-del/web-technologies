@@ -1,0 +1,210 @@
+.header {
+  background-color: #1a1a1a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+/* El icono de las 3 líneas a la izquierda */
+.navbar > .nav-item {
+  color: #ffffff;
+  font-size: 20px;
+  padding: 0 20px;
+  display: none;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+}
+
+/* Contenedor de la lista */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-links li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos de los enlaces de texto */
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+/* Estilos específicos para el icono de la casa */
+.nav-links li a.nav-item-house {
+  color: white;
+  font-size: 20px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* --- EFECTO HOVER DE BORDE A BORDE --- */
+.nav-links li a:hover {
+  background-color: #52a873;
+  color: white;
+}
+
+/* El botón que esté activo (por ejemplo la Casa) */
+.nav-links li.active-link a {
+  background-color: #52a873;
+}
+
+/* --- DISEÑO DEL ELEMENTO DERECHO --- */
+.search-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+  gap: 15px;
+}
+
+#demo {
+    color: #ffffff; /* Texto blanco para header negro */
+    font-weight: bold;
+}
+
+.search-input {
+    width: 0;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #1e293b;
+    color: #ffffff;
+    font-size: 0.85rem;
+    outline: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.search-input.active {
+    width: 180px !important;
+    padding: 6px 10px !important;
+    border: 1px solid #38bdf8 !important;
+    opacity: 1 !important;
+}
+
+
+
+.nav-item-search {
+  color: white;
+  font-size: 20px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+/* Efecto hover opcional por si quieres que cambie de color como los demás */
+.nav-item-search:hover {
+  background-color: #52a873;
+}
+
+/* Margen superior para el contenido del sitio web */
+main {
+  padding-top: 70px;
+  padding-left: 30px;
+  font-family: sans-serif;
+}
+
+.text-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-icon i {
+  font-size: 22px; /* Cambia este valor para hacerlo más grande o pequeño */
+  color: #0f172a; /* Opcional: cambia el color del ícono */
+}
+
+/* --- DISEÑO RESPONSIVE PARA MÓVILES (Media Query) --- */
+@media (max-width: 940px) {
+
+    .navbar > .nav-item {
+        display: flex; /* ⬅️ NUEVO: Se vuelve a mostrar solo en móviles */
+    }
+
+    .nav-links {
+        display: none; /* Se oculta por defecto en celulares */
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 50px; 
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        gap: 15px;
+        height: auto; /* Permite que el menú crezca verticalmente */
+    }
+
+    .nav-links li a.nav-item-house {
+        padding: 10px 20px; /* Forzamos a que tenga exactamente el mismo margen izquierdo (20px) que los demás links en celular */
+        justify-content: flex-start; /* Alinea el icono al inicio */
+    }
+
+    .nav-links li {
+        width: 100%;
+        height: 40px;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    /* Clase activa que añade JavaScript para mostrar el menú desplegado */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .search-input.active {
+        width: 130px; /* Un poco más compacto en móvil */
+    }
+}
+  
+@media (max-width: 520px) {
+    #demo {
+        display: none; /* Oculta el reloj en pantallas muy pequeñas para dar espacio al buscador */
+    }
+}
+
+@media (max-width: 320px) {
+    .search-input,
+    .nav-item-search {
+        display: none;
+    }
+}
